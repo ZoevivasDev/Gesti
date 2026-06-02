@@ -1,0 +1,11 @@
+Quiero dejar por escrito los pasos que quiero ir haciendo en el proyecto.
+asi tmabien puedo visualizar lo que fui aprendiendo.
+
+Primero vamos a crear la seguridad de datos sensibles.
+Cracion de la carpeta de .itignore para que no se filtren datos sensibles al github <3
+
+Segundo paso crear un repo de github y subir el proyecto, pasar el link a colaboradores.
+
+
+
+by: Zoe
