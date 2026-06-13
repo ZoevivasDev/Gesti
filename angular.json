@@ -8,7 +8,14 @@
   "projects": {
     "Gestordeturnos": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "css",
+          "flat": false,
+          "skipTests": true,
+          "type": "component"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",

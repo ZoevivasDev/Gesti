@@ -6,6 +6,14 @@ Cracion de la carpeta de .itignore para que no se filtren datos sensibles al git
 
 Segundo paso crear un repo de github y subir el proyecto, pasar el link a colaboradores.
 
+Tercero creacion de carpetas para tener todo organizado dentro del proyecto. 
 
+Cuarto Configurar las rutas de las carpetas. 
+
+Quinto Desarrollar las carpetas, ts,html,css.
+
+sexto Consumimos los shared.
+
+Septimo 
 
 by: Zoe
