@@ -1,5 +1,48 @@
-<div class="calendar-content">
+<main class="Content-agenda">
   <h1>Calendario</h1>
-  <full-calendar [options]="calendarOptions"></full-calendar>
-  
-</div>
+
+  <div class="calendario-container">
+    
+    
+    <aside class="panel-turno">
+
+
+      <h3>Panel de Turnos</h3>
+      <div class="detalle-turno">
+        <h4 class="nombre-usuario">Nombre del usuario</h4>
+        <hr class="separador">
+        <div class="descripcion-turno">
+          <p>HORARIO: 09:00 - 17:00</p>
+          <p>CATEGORÍA:CLASE DE PIANO</p>
+          <p>TELEFONO: 123-456-7890</p>
+        </div>
+      </div>
+
+      <div class="detalle-turno">
+        <h4 class="nombre-usuario">Nombre del usuario</h4>
+        <hr class="separador">
+        <div class="descripcion-turno">
+          <p>HORARIO: 09:00 - 17:00</p>
+          <p>CATEGORÍA:CLASE DE PIANO</p>
+          <p>TELEFONO: 123-456-7890</p>
+        </div>
+      </div>
+
+      <div class="detalle-turno">
+        <h4 class="nombre-usuario">Nombre del usuario</h4>
+        <hr class="separador">
+        <div class="descripcion-turno">
+          <p>HORARIO: 09:00 - 17:00</p>
+          <p>CATEGORÍA:CLASE DE PIANO</p>
+          <p>TELEFONO: 123-456-7890</p>
+        </div>
+      </div>
+    </aside>
+
+    <div class="calendario">
+      <full-calendar [options]="calendarOptions"></full-calendar>
+    </div>
+    
+
+  </div>
+</main>
