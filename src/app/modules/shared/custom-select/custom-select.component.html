@@ -1,0 +1,10 @@
+<div class="select-container">
+  <label class="global-label">{{ labelText }}</label>
+  <select [formControl]="control" class="global-select">
+    <option value="" disabled selected>{{ placeholderText }}</option>
+    
+    <option *ngFor="let opt of options" [ngValue]="opt">
+      {{ displayKey ? opt[displayKey] : opt }}
+    </option>
+  </select>
+</div>

@@ -1,0 +1,42 @@
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px; /* Espacio global entre header, body y footer */
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.form-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Espacio entre los bloques dentro del formulario */
+}
+
+.vista-pagina {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Espacio entre inputs y títulos */
+}
+
+.opciones-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Espacio entre los botones/actividades */
+}
+
+.actions-footer {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.seccion-titulo {
+  font-weight: 600;
+  color: var(--color-text-main);
+  margin-bottom: 4px;
+}

@@ -1,1 +1,45 @@
-<p>admin works!</p>
+<div class="admin-dashboard">
+  <h2>Panel de Ajustes e Infraestructura</h2>
+  <p>Configurá una nueva actividad y su primer turno operativo.</p>
+
+  <div class="admin-grid">
+    <app-card>
+      <h3>🚀 Registrar Nueva Actividad con Turno</h3>
+      
+      <form [formGroup]="adminForm" (ngSubmit)="guardarTodo()">
+        <app-custom-input 
+          labelText="Nombre de la Actividad / Disciplina" 
+          placeholderText="Ej: Pilates, Yoga, Ritmos"
+          [control]="$any(adminForm.get('nombre'))">
+        </app-custom-input>
+
+        <hr class="my-4">
+
+        <app-custom-input 
+          labelText="Franja Horaria" 
+          placeholderText="Ej: 09:00 - 10:00 hs"
+          [control]="$any(adminForm.get('horario'))">
+        </app-custom-input>
+
+        <app-custom-input 
+          labelText="Profesor Asignado" 
+          placeholderText="Nombre del instructor"
+          [control]="$any(adminForm.get('profesor'))">
+        </app-custom-input>
+
+        <app-custom-input 
+          labelText="Capacidad Máxima (Aforo)" 
+          inputType="number"
+          [control]="$any(adminForm.get('limiteAlumnos'))">
+        </app-custom-input>
+
+        <button 
+          type="submit" 
+          [disabled]="adminForm.invalid" 
+          class="btn-primary w-100">
+          Guardar Configuración Completa
+        </button>
+      </form>
+    </app-card>
+  </div>
+</div>

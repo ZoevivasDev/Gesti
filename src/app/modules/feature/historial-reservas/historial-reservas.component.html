@@ -1,0 +1,32 @@
+<div class="historial-container">
+  <app-card>
+    <div class="header-content">
+      <h3>📋 Historial de Reservas</h3>
+      <span class="status-badge">En línea con MongoDB Atlas</span>
+    </div>
+
+    @if (listaReservas.length === 0) {
+      <div class="empty-state">
+        No hay reservas registradas en la base de datos actualmente.
+      </div>
+    } @else {
+      <app-custom-table 
+        [data]="listaReservas" 
+        [headers]="['Cliente', 'Actividad', 'Horario', 'Fecha', 'Acciones']">
+        
+        <ng-template let-reserva>
+          <td><strong>{{ reserva.nombre }} {{ reserva.apellido }}</strong></td>
+          <td>{{ reserva.actividad }}</td>
+          <td>{{ reserva.turnoTexto }}</td>
+          <td>{{ reserva.fechaFormateada }}</td>
+          <td class="text-center">
+            <button class="btn-cancelar" (click)="cancelarTurno(reserva)">
+              ❌ Cancelar
+            </button>
+          </td>
+        </ng-template>
+
+      </app-custom-table>
+    }
+  </app-card>
+</div>

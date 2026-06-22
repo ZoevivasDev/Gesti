@@ -1,0 +1,19 @@
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Más espacio entre el label y el input */
+  width: 100%;
+}
+
+.global-input {
+  width: 100%;
+  padding: 14px 16px; 
+  border: 1px solid var(--color-border);
+  border-radius: 10px; /* Un poco más redondeado para un look moderno */
+  font-size: 16px;
+  background: #ffffff;
+}
+
+.global-input:focus {
+  border-color: var(--color-primary);
+}

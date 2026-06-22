@@ -1,0 +1,16 @@
+.admin-dashboard {
+  padding: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.admin-grid {
+  display: grid;
+  /* Esto asegura que cada tarjeta tenga espacio suficiente */
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 32px; 
+}
+
+/* Solo dejamos el título */
+h2 { font-size: 24px; margin-bottom: 8px; }
+p { color: #718096; margin-bottom: 32px; }

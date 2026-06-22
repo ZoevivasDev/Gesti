@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --color-primary: #805ad5;
+  --color-primary-light: #b0e4fd; /* Para los selectores */
+  --color-accent: #a2d2ff;       /* Tu color de acción */
+  --color-border: #e2e8f0;
+  --color-text-main: #4a5568;
+  --color-bg-light: #f7fafc;
+  --radius: 12px;
+  --radius-sm: 8px;
+}

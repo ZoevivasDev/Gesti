@@ -1,0 +1,62 @@
+<app-card>
+  <div class="chat-container">
+    <header class="chat-header">
+      <div class="icono-avatar">📝</div>
+      <div>
+        <h2>Formulario de Reservas</h2>
+        <p class="text-muted">Completá tus datos y asegurá tu lugar.</p>
+      </div>
+    </header>
+
+    <div class="form-body">
+      @if (reservaConfirmada) {
+        <div class="ticket-card">
+          <p class="ticket-title">✅ ¡Reserva Confirmada!</p>
+          <div class="ticket-details">
+            <p><strong>Alumno:</strong> {{ reservaConfirmada.nombre }} {{ reservaConfirmada.apellido }}</p>
+            <p><strong>Actividad:</strong> {{ reservaConfirmada.actividad }}</p>
+            <p><strong>Día y Horario:</strong> {{ reservaConfirmada.turnoTexto }}</p>
+          </div>
+        </div>
+      } @else {
+        <div class="form-wizard" [formGroup]="reservaForm">
+          
+          @if (pasoActual === 1) {
+            <div class="vista-pagina">
+              <app-custom-input labelText="Nombre" [control]="$any(reservaForm.get('nombre'))"></app-custom-input>
+              <app-custom-input labelText="Apellido" [control]="$any(reservaForm.get('apellido'))"></app-custom-input>
+
+              <p class="seccion-titulo">Seleccioná una actividad:</p>
+              <div class="opciones-grid">
+                @for (a of actividades; track a._id) {
+                  <app-buttons tipo="selector" [seleccionado]="reservaForm.get('actividadId')?.value === a._id" (clickBoton)="reservaForm.get('actividadId')?.setValue(a._id); onActividadChange()">
+                    <span class="btn-titulo">🤸‍♂️ {{ a.nombre }}</span>
+                  </app-buttons>
+                }
+              </div>
+            </div>
+          }
+
+          @if (pasoActual === 2) {
+            <div class="vista-pagina">
+              <p class="seccion-titulo">Elegí un turno disponible:</p>
+              <div class="opciones-grid">
+                @for (t of turnosDisponibles; track t._id) {
+                  <app-buttons tipo="selector" [seleccionado]="reservaForm.get('turnoId')?.value === t._id" (clickBoton)="reservaForm.get('turnoId')?.setValue(t._id)">
+                    <span class="btn-titulo">{{ t.horario }}</span>
+                    <small class="btn-subtexto">Prof: {{ t.profesor }}</small>
+                  </app-buttons>
+                }
+              </div>
+              
+              <div class="actions-footer">
+                <app-buttons tipo="selector" (clickBoton)="volverPasoUno()">⬅ Volver atrás</app-buttons>
+                <app-buttons tipo="accion" (clickBoton)="onSubmit()">Confirmar reserva ➤</app-buttons>
+              </div>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</app-card>

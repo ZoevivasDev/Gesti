@@ -1,12 +1,42 @@
-<p>navbar works!</p>
+<nav class="sidebar">
+  <div class="nav-content-wrapper">
+    <ul class="nav-links">
+      
+      <li>
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <span class="icon">🏠</span>
+          <span class="text">Inicio</span>
+        </a>
+      </li>
 
-<div>
-  <nav>
-    <ul>
-      <li><a routerLink="/calendar">Calendario</a></li>
-      <li><a routerLink="/calendar">Historial</a></li>
-      <li><a routerLink="/calendar">Admin</a></li>
-      <li><a routerLink="/calendar">User</a></li>
+      <li>
+        <a routerLink="/calendar" routerLinkActive="active">
+          <span class="icon">📅</span>
+          <span class="text">Calendario</span>
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="/historial-reservas" routerLinkActive="active">
+          <span class="icon">📜</span>
+          <span class="text">Historial</span>
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="/registro-reserva" routerLinkActive="active">
+          <span class="icon">📝</span>
+          <span class="text">Reservas</span>
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="/admin" routerLinkActive="active">
+          <span class="icon">⚙️</span> 
+          <span class="text">Administrador</span>
+        </a>
+      </li>
+
     </ul>
-  </nav>
-</div>
+  </div>
+</nav>

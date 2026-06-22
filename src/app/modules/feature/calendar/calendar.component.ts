@@ -1,33 +1,92 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-//importi  el calendario
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { CalendarOptions } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import { ReservaService, ReservaConfirmada } from '../../services/reserva.services';
+import { Subscription } from 'rxjs';
+
+import { CardComponent } from '../../shared/card/card.component';
+import { CustomTableComponent } from '../../shared/custom-table/custom-table.component';
 
 @Component({
   selector: 'app-calendar',
+  standalone: true,
   imports: [
-    CommonModule, 
-    FullCalendarModule //agregamos en los imports
-  ], 
+    CommonModule,
+    FullCalendarModule,
+    CardComponent,
+    CustomTableComponent
+  ],
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.css']
 })
-export class CalendarComponent {
-  
-  //Configuro las opciones del calendario
+export class CalendarComponent implements OnInit, OnDestroy {
+
+  listaTurnos: ReservaConfirmada[] = [];
+  private subscripcion!: Subscription;
+
   calendarOptions: CalendarOptions = {
-    initialView: 'dayGridMonth',//Vista mensual
-    plugins: [dayGridPlugin],//Agrego el plugin para la vista de cuadrícula diaria
-    locale: 'es', // Para que los días y meses salgan en español
-    
-    height: '100%', 
+    initialView: 'dayGridMonth',
+    plugins: [dayGridPlugin],
+    locale: 'es',
+    height: 'auto',
     expandRows: true,
-    
-    events: [
-      { title: 'evento 1', date: '2026-06-15' },
-      { title: 'Turno Limpieza', date: '2026-06-18' }
-    ]//Aquí puedes agregar más eventos según tus necesidades
+    headerToolbar: {
+      left: 'prev,next today',
+      center: 'title',
+      right: ''
+    },
+    events: []
   };
+
+  constructor(private reservaService: ReservaService) {}
+
+  ngOnInit(): void {
+    this.subscripcion = this.reservaService
+      .getReservas$()
+      .subscribe((reservas) => {
+
+        this.listaTurnos = reservas;
+
+        const eventosMapeados = reservas.map((res) => ({
+          title: `${res.nombre}: ${res.actividad}`,
+          date: res.fechaFormateada
+        }));
+
+        this.calendarOptions = {
+          ...this.calendarOptions,
+          events: eventosMapeados
+        };
+      });
+  }
+
+  eliminarTurno(turno: ReservaConfirmada): void {
+
+    if (!turno._id) {
+      console.error('La reserva no tiene ID');
+      return;
+    }
+
+    if (
+      confirm(
+        `¿Estás segura de que querés cancelar la reserva de ${turno.nombre} ${turno.apellido}?`
+      )
+    ) {
+      this.reservaService.borrarReserva(turno._id).subscribe({
+        next: () => {
+          console.log('Reserva eliminada correctamente');
+        },
+        error: (err) => {
+          console.error('Error al eliminar reserva:', err);
+        }
+      });
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (this.subscripcion) {
+      this.subscripcion.unsubscribe();
+    }
+  }
 }

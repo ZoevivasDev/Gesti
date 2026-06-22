@@ -1,0 +1,69 @@
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 70px; /* Ancho cerrado */
+  background-color: #ffffff;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px; /* Menos espacio arriba ahora que no está el círculo */
+}
+
+/* Se expande al pasar el mouse por cualquier parte de la barra */
+.sidebar:hover {
+  width: 240px;
+}
+
+.nav-content-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-links li a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 16px 22px;
+  transition: background 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-links li a:hover, 
+.nav-links li a.active {
+  background-color: #efd2f7; /* Tu rosa pastel */
+}
+
+.icon {
+  font-size: 1.3rem;
+  min-width: 26px;
+  display: flex;
+  justify-content: center;
+  margin-right: 24px;
+}
+
+.text {
+  opacity: 0;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: opacity 0.2s ease;
+}
+
+.sidebar:hover .text {
+  opacity: 1;
+}

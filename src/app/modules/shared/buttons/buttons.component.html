@@ -1,1 +1,8 @@
-<p>buttons works!</p>
+<button
+  type="button"
+  [class.btn-accion]="tipo === 'accion'"
+  [class.btn-selector]="tipo === 'selector'"
+  [class.seleccionado]="seleccionado"
+  (click)="onBtnClick()">
+  <ng-content></ng-content>
+</button>

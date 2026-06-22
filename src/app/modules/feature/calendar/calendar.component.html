@@ -1,48 +1,54 @@
-<main class="Content-agenda">
-  <h1>Calendario</h1>
+<main class="vista-pagina">
+  
+  <div class="dashboard-header">
+    <h1>Agenda de Turnos</h1>
+  </div>
 
-  <div class="calendario-container">
+  <div class="calendar-dashboard-layout">
     
-    
-    <aside class="panel-turno">
-
-
-      <h3>Panel de Turnos</h3>
-      <div class="detalle-turno">
-        <h4 class="nombre-usuario">Nombre del usuario</h4>
-        <hr class="separador">
-        <div class="descripcion-turno">
-          <p>HORARIO: 09:00 - 17:00</p>
-          <p>CATEGORÍA:CLASE DE PIANO</p>
-          <p>TELEFONO: 123-456-7890</p>
-        </div>
+    <app-card>
+      <div class="db-card-header">
+        <h3 class="db-card-title">📅 Vista Mensual de Actividades</h3>
       </div>
 
-      <div class="detalle-turno">
-        <h4 class="nombre-usuario">Nombre del usuario</h4>
-        <hr class="separador">
-        <div class="descripcion-turno">
-          <p>HORARIO: 09:00 - 17:00</p>
-          <p>CATEGORÍA:CLASE DE PIANO</p>
-          <p>TELEFONO: 123-456-7890</p>
-        </div>
+      <div class="calendario-wrapper">
+        <full-calendar [options]="calendarOptions"></full-calendar>
       </div>
+    </app-card>
 
-      <div class="detalle-turno">
-        <h4 class="nombre-usuario">Nombre del usuario</h4>
-        <hr class="separador">
-        <div class="descripcion-turno">
-          <p>HORARIO: 09:00 - 17:00</p>
-          <p>CATEGORÍA:CLASE DE PIANO</p>
-          <p>TELEFONO: 123-456-7890</p>
-        </div>
+    <app-card>
+      <div class="db-card-header">
+        <h3 class="db-card-title">👥 Alumnos Inscriptos en el Sistema</h3>
       </div>
-    </aside>
+      
+      <div class="lista-turnos-scroll">
+        <app-custom-table [headers]="['Alumno', 'Actividad', 'Horario', 'Acciones']">
+      
+          @for (turno of listaTurnos; track turno._id) {
+            <tr>
+              <td><strong>{{ turno.nombre }} {{ turno.apellido }}</strong></td>
+            
+              <td><span class="badge-shared">{{ turno.actividad }}</span></td>
+            
+             <td>⏰ {{ turno.turnoTexto }}</td>
+            
+              <td>
+                <button class="btn-eliminar-tabla" (click)="eliminarTurno(turno)" title="Cancelar Reserva">
+                  🗑️ Borrar
+                </button>
+              </td>
+            </tr>
+          } @empty {
+            <tr>
+              <td colspan="4" style="text-align: center; color: #718096; padding: 30px;">
+                No hay turnos agendados en la base de datos de MongoDB Atlas.
+              </td>
+            </tr>
+          }
 
-    <div class="calendario">
-      <full-calendar [options]="calendarOptions"></full-calendar>
-    </div>
-    
+        </app-custom-table>
+      </div>
+    </app-card> 
 
   </div>
 </main>

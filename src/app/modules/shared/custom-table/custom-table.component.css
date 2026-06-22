@@ -1,0 +1,25 @@
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  background: white;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+}
+
+.global-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.global-table th {
+  background-color: var(--color-bg-light);
+  padding: 14px 16px;
+  color: var(--color-text-main);
+  border-bottom: 2px solid var(--color-border);
+}
+
+.global-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border); /* ¡Cambio clave aquí! */
+  color: #2d3748;
+}
