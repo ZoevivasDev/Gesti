@@ -1,59 +1,119 @@
-# Gestordeturnos
+# 🗓️ Gesti — Gestor de Turnos
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.4.
+Aplicación web para la gestión de turnos y reservas de actividades deportivas y recreativas.  
+Desarrollada como Trabajo Práctico Integrador para la materia **Desarrollo de Sistemas Web (FrontEnd)**.
 
-## Development server
+**IFTS N° 11 — Tecnicatura Superior en Desarrollo de Software**  
+Docente: Federico Balbuena | 2026 — 1° cuatrimestre  
+Autora: **Zoe Vivas**
 
-To start a local development server, run:
+---
+
+## 🚀 ¿Qué es Gesti?
+
+Gesti permite a un administrador crear actividades con sus horarios y profesores, y a los alumnos reservar su lugar en la actividad que prefieran. Todo queda registrado en una base de datos en la nube y se puede visualizar en un calendario mensual interactivo.
+
+---
+
+## ✨ Funcionalidades
+
+- **Reserva de turnos** — formulario paso a paso para que el alumno elija actividad, horario y confirme su lugar
+- **Calendario mensual** — vista de todas las reservas del mes con FullCalendar
+- **Historial de reservas** — listado completo con opción de cancelación
+- **Panel administrativo** — crear, editar y eliminar actividades y turnos
+- **Persistencia en la nube** — datos guardados en MongoDB Atlas
+
+---
+
+## 🛠️ Tecnologías utilizadas
+
+| Tecnología | Uso |
+|---|---|
+| Angular 17+ | Framework frontend (standalone components) |
+| TypeScript | Lenguaje principal |
+| RxJS | Manejo de estado reactivo con BehaviorSubject |
+| FullCalendar | Visualización del calendario |
+| HTML + CSS | Templates y estilos personalizados |
+
+---
+
+## 📁 Estructura del proyecto
+
+```
+src/app/
+├── modules/
+│   ├── feature/
+│   │   ├── home/               # Página de bienvenida
+│   │   ├── admin/              # Panel administrativo
+│   │   ├── calendar/           # Vista de calendario
+│   │   ├── historial-reservas/ # Historial de reservas
+│   │   └── registro-reserva/   # Formulario de reserva
+│   ├── shared/
+│   │   ├── buttons/            # Botón reutilizable
+│   │   ├── card/               # Contenedor card
+│   │   ├── custom-input/       # Input con label
+│   │   ├── custom-table/       # Tabla con headers dinámicos
+│   │   └── navbar/             # Navegación lateral
+│   ├── services/
+│   │   ├── reserva.service.ts  # CRUD de reservas + estado reactivo
+│   │   └── actividad.service.ts # CRUD de actividades y turnos
+│   └── interfaces/
+│       ├── reserva.interface.ts
+│       ├── actividad.interface.ts
+│       └── turno.interface.ts
+```
+
+---
+
+## ⚙️ Cómo correr el proyecto
+
+### Requisitos previos
+- Node.js instalado
+- Angular CLI instalado (`npm install -g @angular/cli`)
+
+### Pasos
 
 ```bash
+# 1. Clonar el repositorio
+git clone https://github.com/ZoevivasDev/GestiBackend.git
+
+# 2. Instalar dependencias
+npm install
+
+# 3. Correr el servidor de desarrollo
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+La app estará disponible en `http://localhost:4200`
 
-## Code scaffolding
+> ⚠️ Para que funcione completamente necesitás tener el backend corriendo en `http://localhost:3000`.  
+> Repositorio del backend: [GestiBackend](https://github.com/ZoevivasDev/GestiBackend)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+---
 
-```bash
-ng generate component component-name
-```
+## 🔗 Conexión con el Backend
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+La app consume una API REST propia desarrollada en Node.js + Express + MongoDB.
 
-```bash
-ng generate --help
-```
+| Endpoint | Método | Descripción |
+|---|---|---|
+| `/api/actividades` | GET | Obtener todas las actividades con sus turnos |
+| `/api/actividades` | POST | Crear actividad y turno |
+| `/api/actividades/:id` | DELETE | Eliminar actividad y sus turnos |
+| `/api/turnos/:id` | PUT | Editar un turno |
+| `/api/reservas` | GET | Obtener todas las reservas |
+| `/api/reservas` | POST | Crear una reserva |
+| `/api/reservas/:id` | DELETE | Cancelar una reserva |
 
-## Building
+---
 
-To build the project run:
+## 📚 Conceptos aplicados de la materia
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Arquitectura basada en componentes standalone
+- Property binding, event binding y two-way binding
+- Servicios e inyección de dependencias
+- Routing con lazy loading
+- Formularios reactivos con validaciones
+- Consumo de APIs con HttpClient
+- Estructuras de control `@if` y `@for`
+- Comunicación entre componentes con `@Input` y `@Output`
