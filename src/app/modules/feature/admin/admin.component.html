@@ -1,45 +1,94 @@
 <div class="admin-dashboard">
-  <h2>Panel de Ajustes e Infraestructura</h2>
-  <p>Configurá una nueva actividad y su primer turno operativo.</p>
-
+  <div class="titless">
+    <h2>Panel administrativo</h2>
+    <p>Configura una nueva actividad.</p>
+  </div>
   <div class="admin-grid">
+
+    <!-- CARD 1: Crea actividad -->
     <app-card>
-      <h3>🚀 Registrar Nueva Actividad con Turno</h3>
-      
+      <h3>Registrar Nueva Actividad</h3>
       <form [formGroup]="adminForm" (ngSubmit)="guardarTodo()">
         <app-custom-input 
           labelText="Nombre de la Actividad / Disciplina" 
           placeholderText="Ej: Pilates, Yoga, Ritmos"
           [control]="$any(adminForm.get('nombre'))">
         </app-custom-input>
-
-        <hr class="my-4">
-
         <app-custom-input 
           labelText="Franja Horaria" 
           placeholderText="Ej: 09:00 - 10:00 hs"
           [control]="$any(adminForm.get('horario'))">
         </app-custom-input>
-
         <app-custom-input 
           labelText="Profesor Asignado" 
           placeholderText="Nombre del instructor"
           [control]="$any(adminForm.get('profesor'))">
         </app-custom-input>
-
         <app-custom-input 
           labelText="Capacidad Máxima (Aforo)" 
           inputType="number"
           [control]="$any(adminForm.get('limiteAlumnos'))">
         </app-custom-input>
-
-        <button 
-          type="submit" 
-          [disabled]="adminForm.invalid" 
-          class="btn-primary w-100">
+        <app-buttons
+          tipo="accion"
+          [disabled]="adminForm.invalid"
+          (clickBoton)="guardarTodo()">
           Guardar Configuración Completa
-        </button>
+        </app-buttons>
       </form>
     </app-card>
+
+    <!-- CARD 2: Ver, editar y borrar actividades -->
+    <app-card>
+      <h3>Actividades Registradas</h3>
+      @if (actividades.length === 0) {
+        <p class="empty-state">No hay actividades cargadas aún.</p>
+      } @else {
+        @for (actividad of actividades; track actividad._id) {
+          <div class="actividad-item">
+            <span class="actividad-nombre"> 🤸‍♂️ {{ actividad.nombre }}</span>
+            <button class="btn-eliminar-tabla" (click)="borrarActividad(actividad._id)">
+              🗑️ Borrar
+            </button>
+          </div>
+
+          @for (turno of actividad.turnos; track turno._id) {
+            <div class="turno-item">
+              @if (turnoEnEdicion?._id === turno._id) {
+                <div class="edit-form" [formGroup]="editForm">
+                  <app-custom-input
+                    labelText="Horario"
+                    [control]="$any(editForm.get('horario'))">
+                  </app-custom-input>
+                  <app-custom-input
+                    labelText="Profesor"
+                    [control]="$any(editForm.get('profesor'))">
+                  </app-custom-input>
+                  <app-custom-input
+                    labelText="Límite de alumnos"
+                    inputType="number"
+                    [control]="$any(editForm.get('limiteAlumnos'))">
+                  </app-custom-input>
+                  <div class="edit-actions">
+                    <app-buttons tipo="accion" (clickBoton)="guardarEdicion(turno._id)">
+                      ✅ Guardar
+                    </app-buttons>
+                    <app-buttons tipo="selector" (clickBoton)="cancelarEdicion()">
+                      ❌ Cancelar
+                    </app-buttons>
+                  </div>
+                </div>
+              } @else {
+                <span class="turno-info">⏰ {{ turno.horario }} — Prof: {{ turno.profesor }} — Cupos: {{ turno.limiteAlumnos }}</span>
+                <button class="btn-editar" (click)="editarTurno(turno)">
+                  ✏️ Editar
+                </button>
+              }
+            </div>
+          }
+        }
+      }
+    </app-card>
+
   </div>
 </div>

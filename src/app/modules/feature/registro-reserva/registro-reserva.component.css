@@ -1,7 +1,11 @@
 .chat-container {
   display: flex;
   flex-direction: column;
-  gap: 32px; /* Espacio global entre header, body y footer */
+  gap: 32px;
+  max-width: 560px;      
+  margin: 0 auto;
+  width: 100%;
+  padding: 8px 0;
 }
 
 .chat-header {
@@ -13,19 +17,19 @@
 .form-body {
   display: flex;
   flex-direction: column;
-  gap: 20px; /* Espacio entre los bloques dentro del formulario */
+  gap: 20px;
 }
 
 .vista-pagina {
   display: flex;
   flex-direction: column;
-  gap: 16px; /* Espacio entre inputs y títulos */
+  gap: 16px;
 }
 
 .opciones-grid {
   display: flex;
   flex-direction: column;
-  gap: 12px; /* Espacio entre los botones/actividades */
+  gap: 12px;
 }
 
 .actions-footer {
@@ -39,4 +43,27 @@
   font-weight: 600;
   color: var(--color-text-main);
   margin-bottom: 4px;
+}
+
+.ticket-card {
+  background: #f0fff4;
+  border: 1px solid #9ae6b4;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.ticket-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #276749;
+  margin-bottom: 12px;
+}
+
+.ticket-details p {
+  margin: 6px 0;
+  color: #2d3748;
+}
+
+.btn-subtexto{
+  padding: 10px;
 }

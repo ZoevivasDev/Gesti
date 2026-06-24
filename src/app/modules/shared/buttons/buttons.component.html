@@ -3,6 +3,7 @@
   [class.btn-accion]="tipo === 'accion'"
   [class.btn-selector]="tipo === 'selector'"
   [class.seleccionado]="seleccionado"
+  [disabled]="disabled"
   (click)="onBtnClick()">
   <ng-content></ng-content>
 </button>

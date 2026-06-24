@@ -1,151 +1,39 @@
-/* Layout adaptado al sistema del Dashboard de tu Figma */
+/* Altura máxima al scroll de la tabla para que quede alineado con el calendario */
+.lista-turnos-scroll {
+  overflow-y: auto;
+  max-height: 600px;   /* 👈 ESTO FALTABA — sin esto no hay scroll visible */
+  display: flex;
+  flex-direction: column;
+  gap: 0;              /* Las filas <tr> no necesitan gap */
+  padding-right: 4px;
+}
+
+/* Botón de borrar dentro de la tabla */
+.btn-eliminar-tabla {
+  background: transparent;
+  border: 1px solid #ffcccc;
+  color: #e53e3e;
+  padding: 5px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-eliminar-tabla:hover {
+  background-color: #ffe5e5;
+  transform: scale(1.05);
+}
+
 .calendar-dashboard-layout {
   display: grid;
-  grid-template-columns: 1.8fr 1fr; /* Respeta la proporción: calendario ancho, panel angosto */
+  grid-template-columns: 1.5fr 1fr; /* 👈 Antes era 1.8fr — le da más ancho al panel */
   gap: 24px;
   align-items: start;
   margin-top: 16px;
 }
 
-/* Contenedor específico para forzar a FullCalendar a responder al tamaño de la card */
-.calendario-wrapper {
-  flex: 1;
-  min-height: 550px;
-  max-height: 650px;
-  overflow: hidden;
-}
-
-/* Personalización sutil para que FullCalendar use tu tipografía Poppins */
-::ng-deep .fc {
-  font-family: 'Poppins', sans-serif !important;
-  --fc-border-color: #f0f0f0;
-  --fc-button-bg-color: #a2d2ff;
-  --fc-button-border-color: #a2d2ff;
-  --fc-button-hover-bg-color: #90c2f0;
-  --fc-button-hover-border-color: #90c2f0;
-  --fc-button-active-bg-color: #efd2f7;
-  --fc-button-active-border-color: #efd2f7;
-}
-
-::ng-deep .fc .fc-button-primary:not(:disabled).fc-button-active {
-  color: #000000 !important;
-}
-
-/* Panel lateral de turnos con scroll interno independiente */
-.panel-turno-box {
-  max-height: 720px;
-  display: flex;
-  flex-direction: column;
-}
-
-.lista-turnos-scroll {
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  padding-right: 4px;
-}
-
-/* Tarjetas de turnos estilizadas tipo "Figma Layout" */
-.detalle-turno {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 14px;
-  background-color: #ffffff;
-  border: 1px solid #f0f0f0;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.01);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.detalle-turno:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-}
-
-.avatar-turno {
-  width: 45px;
-  height: 45px;
-  background-color: #efd2f7; /* Tu rosa pastel */
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.3rem;
-  flex-shrink: 0;
-}
-
-.info-turno {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.nombre-usuario {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #000000;
-  margin: 0;
-}
-
-.categoria-turno {
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: #555555;
-  margin: 0;
-}
-
-.horario-turno, .telefono-turno {
-  font-size: 0.8rem;
-  color: #777777;
-  margin: 0;
-}
-
-/* Scrollbar estético para el panel */
-.lista-turnos-scroll::-webkit-scrollbar {
-  width: 6px;
-}
-
-.lista-turnos-scroll::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.lista-turnos-scroll::-webkit-scrollbar-thumb {
-  background: #e0e0e0;
-  border-radius: 4px;
-}
-
-.calendario{
-    width: 60%;
-    height: 90vh;
-}
-
-/* Estilos para el botón de eliminar turno */
-.detalle-turno {
-  position: relative; /* Permite posicionar el botón de forma absoluta dentro */
-  padding-right: 40px; /* Deja espacio para que el tacho no pise el texto */
-}
-
-.btn-eliminar {
-  position: absolute;
-  right: 14px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: transparent;
-  border: none;
-  font-size: 1.1rem;
-  cursor: pointer;
-  padding: 6px;
-  border-radius: 6px;
-  transition: background-color 0.2s, transform 0.1s;
-}
-
-.btn-eliminar:hover {
-  background-color: #ffe5e5; /* Fondo rojo muy suave al pasar el mouse */
-  transform: translateY(-50%) scale(1.1);
-}
-
-.btn-eliminar:active {
-  transform: translateY(-50%) scale(0.95);
+td{
+  padding: 13px; 
+  text-align: center;
 }

@@ -1,10 +1,27 @@
+/*Colore/bordes/ globales*/
+
 :root {
   --color-primary: #805ad5;
-  --color-primary-light: #b0e4fd; /* Para los selectores */
-  --color-accent: #a2d2ff;       /* Tu color de acción */
+  --color-primary-light: #bbfbfd;   
   --color-border: #e2e8f0;
   --color-text-main: #4a5568;
   --color-bg-light: #f7fafc;
   --radius: 12px;
   --radius-sm: 8px;
+}
+
+body {
+  background-image: url('./assets/img/background.webp');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* 👈 para que no se mueva al hacer scroll */
+  background-repeat: no-repeat;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.75); 
+  z-index: -1;
+  pointer-events: none;
 }

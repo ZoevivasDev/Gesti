@@ -1,3 +1,4 @@
+ //Select con label integrado para listas de opciones.
 import { Component, Input } from '@angular/core';
 import { ReactiveFormsModule, FormControl } from '@angular/forms';
 import { CommonModule } from '@angular/common';

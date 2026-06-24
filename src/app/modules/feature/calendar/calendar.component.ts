@@ -1,9 +1,14 @@
+//Vista mensual de reservas usando FullCalendar con panel lateral de alumnos inscriptos.
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { CalendarOptions } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import { ReservaService, ReservaConfirmada } from '../../services/reserva.services';
+
+
+import { ReservaService} from '../../services/reserva.service';
+import { ReservaConfirmada } from '../../interfaces/reserva.interface';
+
 import { Subscription } from 'rxjs';
 
 import { CardComponent } from '../../shared/card/card.component';

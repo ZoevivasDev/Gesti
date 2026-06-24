@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+//Contenedor con borde redondeado y sombra suave. Acepta prop narrow para version angosta.
+//es una propiedad que le pasa a la card para que tenga un ancho maximo de 620px y quede centrada
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -8,5 +10,5 @@ import { Component } from '@angular/core';
   styleUrl: './card.component.css',
 })
 export class CardComponent {
-
+  @Input() narrow: boolean = false;
 }

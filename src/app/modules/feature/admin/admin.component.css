@@ -6,11 +6,73 @@
 
 .admin-grid {
   display: grid;
-  /* Esto asegura que cada tarjeta tenga espacio suficiente */
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 32px; 
+  gap: 32px;
 }
 
-/* Solo dejamos el título */
 h2 { font-size: 24px; margin-bottom: 8px; }
 p { color: #718096; margin-bottom: 32px; }
+
+.actividad-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+}
+
+.actividad-nombre {
+  font-weight: 500;
+  color: #2d3748;
+}
+
+.empty-state {
+  text-align: center;
+  color: #718096;
+  padding: 24px 0;
+}
+
+.turno-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  margin: 4px 0 4px 16px;
+  background-color: #f9f9f9;
+  border-left: 3px solid #efd2f7;
+  border-radius: 8px;
+}
+
+.turno-info {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.btn-editar {
+  background: transparent;
+  border: 1px solid #a2d2ff;
+  color: #2b6cb0;
+  padding: 4px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background-color 0.2s;
+}
+
+.btn-editar:hover {
+  background-color: #ebf8ff;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 0;
+}
+
+.edit-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 4px;
+}

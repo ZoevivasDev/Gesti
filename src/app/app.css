@@ -1,3 +1,5 @@
+/*Estilos globales: reset, tipografía Poppins y contenedor principal.*/
+
 * {
   margin: 0;
   padding: 0;
@@ -5,12 +7,8 @@
   font-family: 'Poppins', sans-serif;
 }
 
-body {
-  background-color: #f5f5f5; /* Un fondo suave para que la Card resalte */
-}
-
 .main-wrapper {
   margin-left: 70px;
-  padding: 32px; /* Más aire para el contenido principal */
+  padding: 32px; 
   min-height: 100vh;
 }

@@ -1,5 +1,7 @@
+//libreria, Angular,detecta cambios.
 import 'zone.js';
-import { bootstrapApplication } from '@angular/platform-browser';
+//boostrapApp arranca mi Agular
+import { bootstrapApplication } from '@angular/platform-browser'; 
 import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app';
 

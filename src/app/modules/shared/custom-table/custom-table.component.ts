@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core'; // 👈 Asegurate de importar 'Input'
+//Tabla con headers dinamicos y proyeccion de contenido para las filas.
+import { Component, Input } from '@angular/core'; 
 import { CommonModule } from '@angular/common';
 
 @Component({

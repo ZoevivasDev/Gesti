@@ -1,6 +1,9 @@
+//Listado completo de reservas con opción de cancelación.
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReservaService, ReservaConfirmada } from '../../services/reserva.services';
+import { ReservaService} from '../../services/reserva.service';
+import { ReservaConfirmada } from '../../interfaces/reserva.interface';
+
 import { Subscription } from 'rxjs';
 
 import { CustomTableComponent } from '../../shared/custom-table/custom-table.component'; 

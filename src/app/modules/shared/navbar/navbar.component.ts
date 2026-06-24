@@ -1,8 +1,8 @@
+//Barra de navegacion lateral con links a todas las secciones.
+//
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-//importamos el routermodule para los enlaces de navegación
 import { RouterModule } from '@angular/router';
-
 
 
 @Component({

@@ -3,21 +3,10 @@
     <thead>
       <tr>
         <th *ngFor="let head of headers">{{ head }}</th>
-        <th>Acciones</th> </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of data">
-        <td>{{ item.nombre }} {{ item.apellido }}</td>
-        <td>{{ item.actividad }}</td>
-        <td>{{ item.turnoTexto }}</td>
-        <td>{{ item.fechaFormateada }}</td>
-        
-        <td>
-          <span [ngClass]="{'badge-shared': true, 'status-active': item.activo}">
-            {{ item.activo ? 'Activo' : 'Pendiente' }}
-          </span>
-        </td>
       </tr>
+    </thead>
+    <tbody >
+      <ng-content></ng-content>
     </tbody>
   </table>
 </div>

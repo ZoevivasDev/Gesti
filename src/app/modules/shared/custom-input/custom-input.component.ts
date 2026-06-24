@@ -1,3 +1,4 @@
+//input con label integrado y validación reactiva.
 import { Component, Input } from '@angular/core';
 import { ReactiveFormsModule, FormControl } from '@angular/forms';
 

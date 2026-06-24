@@ -1,3 +1,5 @@
+//Formulario paso a paso para que el alumno elija actividad, turno y confirme su reserva.
+
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
@@ -8,7 +10,9 @@ import {
 } from '@angular/forms';
 
 import { ButtonsComponent } from '../../shared/buttons/buttons.component';
-import { ReservaService, ReservaConfirmada } from '../../services/reserva.services';
+import { ReservaService} from '../../services/reserva.service';
+import { ActividadService } from '../../services/actividad.service';
+import { ReservaConfirmada } from '../../interfaces/reserva.interface';
 import { CardComponent } from '../../shared/card/card.component';
 import { CustomInputComponent } from '../../shared/custom-input/custom-input.component';
 
@@ -37,7 +41,8 @@ export class RegistroReservaComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private reservaService: ReservaService
+    private reservaService: ReservaService,
+    private actividadService: ActividadService,
   ) {
     this.reservaForm = this.fb.group({
       nombre: ['', Validators.required],
@@ -48,10 +53,8 @@ export class RegistroReservaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.reservaService.getActividades().subscribe({
-      next: (data) => {
-        this.actividades = data;
-      },
+    this.actividadService.getActividades().subscribe({
+      next: (data) => {this.actividades = data;},
       error: (err) =>
         console.error(
           'Error al traer actividades para el cliente:',

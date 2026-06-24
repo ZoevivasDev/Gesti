@@ -1,19 +1,45 @@
-Quiero dejar por escrito los pasos que quiero ir haciendo en el proyecto.
-asi tmabien puedo visualizar lo que fui aprendiendo.
+Diario de aprendizaje — Gestor de Turnos
 
-Primero vamos a crear la seguridad de datos sensibles.
-Cracion de la carpeta de .itignore para que no se filtren datos sensibles al github <3
+Quiero dejar por escrito los pasos que fui haciendo en el proyecto.
 
-Segundo paso crear un repo de github y subir el proyecto, pasar el link a colaboradores.
+Paso 1 — Seguridad de datos sensibles
+Creacion del archivo .gitignore para que no se filtren datos sensibles al GitHub. 
 
-Tercero creacion de carpetas para tener todo organizado dentro del proyecto. 
+Paso 2 — Repositorio
+Crear un repo de Github y subir el proyecto, pasar el link a colaboradores.
 
-Cuarto Configurar las rutas de las carpetas. 
+Paso 3 — Organizacion de carpetas
+Creacion de carpetas para tener todo organizado dentro del proyecto.
 
-Quinto Desarrollar las carpetas, ts,html,css.
+Paso 4 — Configuracion de rutas
+Configurar las rutas de las carpetas.
 
-sexto Consumimos los shared.
+Paso 5 — Desarrollo de componentes
+Desarrollar las carpetas: .ts, .html, .css.
 
-Septimo 
+Paso 6 — Shared components
+Consumimos los componentes compartidos: custom-input, custom-table, buttons, card.
 
-by: Zoe
+Paso 7 — Conexion con el backend
+Creacion del servidor en Node.js + Express. Configuracion de rutas REST (/api/actividades, /api/reservas, /api/turnos).
+
+Paso 8 — Base de datos
+Conexion a MongoDB Atlas. Creacion de los modelos Actividad, Turno y Reserva con Mongoose.
+
+Paso 9 — Flujo admin
+Formulario para crear actividades con sus turnos desde el panel de administracion. El backend recibe el payload y guarda la actividad y el turno vinculado en dos colecciones separadas.
+
+Paso 10 — Flujo de reservas
+Formulario de reserva en pasos: el alumno ingresa nombre y apellido, elige actividad, elige turno disponible y confirma. La reserva se guarda en MongoDB.
+
+Paso 11 — Calendario y historial
+Vista de calendario mensual con FullCalendar mostrando las reservas. Panel lateral con tabla de alumnos inscriptos. Historial de reservas con opcion de cancelar.
+
+Paso 12 — Eliminacion de actividades
+Desde el panel admin se pueden borrar actividades junto con todos sus turnos vinculados.
+
+Siguientes pasos
+-Crear popops (lindos).
+-Cambio de registro por chatboot.
+
+by. Zoe

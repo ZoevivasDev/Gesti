@@ -1,0 +1,51 @@
+.historial-container {
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 24px 16px;   
+}
+.historial-container app-card {
+  overflow: hidden;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.status-badge {
+  font-size: 0.75rem;
+  background-color: #d4edda;
+  color: #276749;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.empty-state {
+  text-align: center;
+  color: #718096;
+  padding: 40px 0;
+}
+
+.btn-cancelar {
+  background: transparent;
+  border: 1px solid #ffcccc;
+  color: #e53e3e;
+  padding: 5px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background-color 0.2s;
+}
+
+.btn-cancelar:hover {
+  background-color: #ffe5e5;
+}
+
+td{
+  padding: 13px; 
+  text-align: center;
+}

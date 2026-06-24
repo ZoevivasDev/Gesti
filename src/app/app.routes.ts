@@ -1,7 +1,8 @@
+//definicion de rutas con lazy loading para cada página.
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-  // Path vacío redirige al Home (Carga perezosa / Lazy Loading)
+  // Path vacio redirige al Home (Carga perezosa / Lazy Loading)
   {
     path: '',
     loadComponent: () => import('./modules/feature/home/home.component').then(m => m.HomeComponent)
@@ -25,6 +26,7 @@ export const routes: Routes = [
     loadComponent: () => import('./modules/feature/historial-reservas/historial-reservas.component').then(m => m.HistorialReservasComponent)
   },
 
+  // path para el admin
   {
     path: 'admin',
     loadComponent: () => import('./modules/feature/admin/admin.component').then(m => m.AdminComponent)
